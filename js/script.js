@@ -40,8 +40,13 @@ const render = function () {
       toDoData.splice(index, 1);
       render();
     });
+
     localStorage.setItem("toDoList", JSON.stringify(toDoData));
   });
+
+  if (toDoData.length == 0) {
+    localStorage.clear();
+  }
 };
 
 if (localStorage.toDoList) {
